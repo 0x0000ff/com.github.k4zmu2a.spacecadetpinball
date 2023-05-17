@@ -75,3 +75,35 @@ modules:
         commands:
           - unzip -q pinball.zip
           - rm pinball.zip
+  - name: steamlauncher
+    buildsystem: simple
+    build-commands:
+      - install -Dm777 launcher.vdf ${FLATPAK_DEST}/share/steamlauncher/launcher.vdf
+      - install -Dm777 0_icon.png ${FLATPAK_DEST}/share/steamlauncher/0_icon.png
+      - install -Dm777 0.png ${FLATPAK_DEST}/share/steamlauncher/0.png
+      - install -Dm777 0p.png ${FLATPAK_DEST}/share/steamlauncher/0p.png
+      - install -Dm777 0_hero.png ${FLATPAK_DEST}/share/steamlauncher/0_hero.png
+      - install -Dm777 0_logo.png ${FLATPAK_DEST}/share/steamlauncher/0_logo.png
+    sources:
+      - type: file
+        path: launcher.vdf
+      - type: file
+        url: https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/48a9b5f5766df9413fcab709c6557919.png
+        sha256: fe590f34eb35ca1e84221e6a6873d67faf2b6e906dff86e6efd0354c9af98593
+        dest-filename: 0_icon.png
+      - type: file
+        url: https://cdn2.steamgriddb.com/file/sgdb-cdn/logo/184260348236f9554fe9375772ff966e.png
+        sha256: b65685a852192652bd379d1245b8740363af450125a41e766f30a08477aa215d
+        dest-filename: 0_logo.png
+      - type: file
+        url: https://cdn2.steamgriddb.com/file/sgdb-cdn/hero/360bfbe9fb2fe3f305db7b6fe1f8a4ad.png
+        sha256: 4619f81e5deb6b2082ed6eef2eb6c7b5e7ad292e8dad3004828d0e76192ba620
+        dest-filename: 0_hero.png
+      - type: file
+        url: https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/c06fea7bbaf463d21ae0cb8ca11a79f7.png
+        sha256: b6b384ab0575c018f6b80e54a22fb171ea2052dfa0c88bab93a5c2ad3533c89e
+        dest-filename: 0p.png
+      - type: file
+        url: https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/7e53f6651475ddf1c9e8071f6615c813.png
+        sha256: 62236546dd511e3ac9651d7229fa415d7581ff86ed227ffa1698d672f818dbd2
+        dest-filename: 0.png
